@@ -4,43 +4,60 @@ import { StyleSheet, Text, View, TouchableOpacity, TouchableHighlight } from 're
 
 export default function App() {
 
-  const [count, setCount] = useState('');
+  const [resul, setResul] = useState('0');
+  const [operacion, setOperacion] = useState('');
+  // const [prenum, setPrenum] = useState('');
+  // const [accion, setAccion] = useState('');
 
-  const onPress = (num) => {
-    alert(num);
+  // const [operacion, setOperacion] = useState({
+  //   num:['halo1','halo2'],
+  // });
+
+
+  const Total = (num) => {
+    console.log(num);
   };
 
   return (
     <View style={styles.container}>
 
-      <Text style={styles.resultado}>
-      {count}
-      </Text>
+    
+      <View style={styles.conte_resultado}>
+        <Text style={styles.operacion}>
+          {operacion}
+        {/* {operacion+'= '+resul} */}
+        {/* {console.log(accion)} */}
+        {/* {resul} */}
+        </Text>
+        <Text style={styles.resultado}>
+          {resul}
+        </Text>
+      </View>
 
       <View style={styles.BtnConte}>
         
-        <TouchableOpacity style={[styles.boton, styles.boton1]}>
+        <TouchableOpacity 
+          onPress={() => {
+            setOperacion('')
+            setResul('0')
+          }}
+          style={[styles.boton, styles.boton1]}>
           <Text style={styles.color}>CLEAR</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.boton, styles.boton1]}>
+        <TouchableOpacity onPress={() =>{
+          setResul(eval(operacion))
+        }} 
+        style={[styles.boton, styles.boton1]}>
           <Text style={styles.color}>=</Text>
         </TouchableOpacity>
-        
 
       </View>
 
       <View style={styles.BtnConte}>
         
-        {/* <TouchableHighlight
-        activeOpacity={0.6}
-        underlayColor="red"
-        onPress={() => console.log('siiii')}
-        style={[styles.boton, styles.boton2]}>
-          <Text style={styles.color}>1</Text>
-        </TouchableHighlight> */}
         <TouchableOpacity 
-          onPress={() => setCount(1)} 
+          onPress={() => setOperacion(operacion+'1')}
           style={[styles.boton, styles.boton2]}>
 
           <Text style={styles.color}>1</Text>
@@ -48,17 +65,21 @@ export default function App() {
         </TouchableOpacity>
 
         <TouchableOpacity 
-          onPress={() => setCount(2)}
+          onPress={() => setOperacion(operacion+'2')}
           style={[styles.boton, styles.boton2]}>
 
           <Text style={styles.color}>2</Text>
 
         </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.boton, styles.boton2]}>
+        <TouchableOpacity 
+          onPress={() => setOperacion(operacion+'3')}
+          style={[styles.boton, styles.boton2]}>
           <Text style={styles.color}>3</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.boton, styles.boton1]}>
+        <TouchableOpacity 
+        onPress={() => setOperacion(operacion+'-')}
+        style={[styles.boton, styles.boton1]}>
           <Text style={styles.color}>-</Text>
         </TouchableOpacity>
 
@@ -66,16 +87,24 @@ export default function App() {
 
       <View style={styles.BtnConte}>
         
-        <TouchableOpacity style={[styles.boton, styles.boton2]}>
+        <TouchableOpacity 
+          onPress={() => setOperacion(operacion+'4')}
+          style={[styles.boton, styles.boton2]}>
           <Text style={styles.color}>4</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.boton, styles.boton2]}>
+        <TouchableOpacity 
+          onPress={() => setOperacion(operacion+'5')}
+          style={[styles.boton, styles.boton2]}>
           <Text style={styles.color}>5</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.boton, styles.boton2]}>
+        <TouchableOpacity 
+          onPress={() => setOperacion(operacion+'6')}
+          style={[styles.boton, styles.boton2]}>
           <Text style={styles.color}>6</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.boton, styles.boton1]}>
+        <TouchableOpacity 
+          onPress={() => setOperacion(operacion+'*')}
+          style={[styles.boton, styles.boton1]}>
           <Text style={styles.color}>X</Text>
         </TouchableOpacity>
 
@@ -83,16 +112,24 @@ export default function App() {
 
       <View style={styles.BtnConte}>
         
-        <TouchableOpacity style={[styles.boton, styles.boton2]}>
+        <TouchableOpacity 
+          onPress={() => setOperacion(operacion+'7')}
+          style={[styles.boton, styles.boton2]}>
           <Text style={styles.color}>7</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.boton, styles.boton2]}>
+        <TouchableOpacity 
+          onPress={() => setOperacion(operacion+'8')}
+          style={[styles.boton, styles.boton2]}>
           <Text style={styles.color}>8</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.boton, styles.boton2]}>
+        <TouchableOpacity 
+          onPress={() => setOperacion(operacion+'9')}
+          style={[styles.boton, styles.boton2]}>
           <Text style={styles.color}>9</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.boton, styles.boton1]}>
+        <TouchableOpacity 
+          onPress={() => setOperacion(operacion+'/')}
+          style={[styles.boton, styles.boton1]}>
           <Text style={styles.color}>/</Text>
         </TouchableOpacity>
 
@@ -100,16 +137,24 @@ export default function App() {
 
       <View style={styles.BtnConte}>
         
-        <TouchableOpacity style={[styles.boton, styles.boton2]}>
+        <TouchableOpacity 
+          onPress={() => setOperacion(operacion+'0')}
+          style={[styles.boton, styles.boton2]}>
           <Text style={styles.color}>0</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.boton, styles.boton2]}>
+        <TouchableOpacity 
+          onPress={() => setOperacion(operacion+'00')}
+          style={[styles.boton, styles.boton2]}>
           <Text style={styles.color}>00</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.boton, styles.boton2]}>
+        <TouchableOpacity 
+          onPress={() => setOperacion(operacion+'.')}
+          style={[styles.boton, styles.boton2]}>
           <Text style={styles.color}>.</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.boton, styles.boton1]}>
+        <TouchableOpacity 
+          onPress={() => setOperacion(operacion+'+')}
+          style={[styles.boton, styles.boton1]}>
           <Text style={styles.color}>+</Text>
         </TouchableOpacity>
         
@@ -169,18 +214,39 @@ const styles = StyleSheet.create({
     // alignItems: 'center',
     // justifyContent: 'center',
   },
-  resultado: {
+  conte_resultado: {
     height: '30%',
     backgroundColor: '#333333',
-    color: '#fff', //#696969
-    textAlignVertical: 'bottom',
-    textAlign: 'right',
-    fontSize: 50,
+    // flex: 1,
+    
+
+    // color: '#fff', //#696969
+    // textAlignVertical: 'bottom',
+    // textAlign: 'right',
+    // fontSize: 50,
+
+
     // TextAlignVertical: 'text-bottom',
     // flex: 1,
     // justifyContent:'center',
     // alignItems: 'center',
     // fontSize: '60px'
+  },
+  operacion: {
+    textAlignVertical: 'bottom',
+    textAlign: 'right',
+    // backgroundColor: 'blue',
+    height: '65%',
+    // height: '30%',
+    color: '#AFAFAF',
+    fontSize: 30,
+  },
+  resultado: {
+    textAlignVertical: 'bottom',
+    textAlign: 'right',
+    // backgroundColor: 'red',
+    color: '#FFFFFF',
+    fontSize: 55,
   },
   BtnConte: {
     
